@@ -1,19 +1,22 @@
 class UsersController < ApplicationController
-	def new
+  def new
   @user = User.new
 end
 
 def create
+  binding.pry
   @user = User.new(user_params)
-  # binding.pry
   if @user.save
-    redirect_to  root_url, :notice => "Signed up!"
+    redirect_to log_in_path, :notice => "Signed in!"
   else
     render "new"
   end
 end
+
 private
 	def user_params
-		params.require(:user).permit(:firstname, :lastname, :username,:email,:phnumber,:password)
+  # binding.pry
+
+		params.require(:user).permit(:firstname,:lastname,:username,:email,:phnumber,:password,:password_confirmation)
 	end
 end

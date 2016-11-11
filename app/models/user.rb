@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	 attr_accessor :firstname, :lastname, :username, :phnumber, :email, :password, :password_confirmation
+  has_many :events
+	 # attr_accessor :firstname, :lastname, :username, :phnumber, :email, :password, :password_confirmation
   
   attr_accessor :password
   before_save :encrypt_password
