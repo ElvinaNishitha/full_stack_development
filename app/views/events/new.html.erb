@@ -1,0 +1,45 @@
+<div class="container">
+	<div class="row">
+	<div class="col-sm-5">
+	</div>
+	<div class="col-sm-6">
+		<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    Event<br />
+    <%= f.text_field :event_title %>
+  </p>
+  <p>
+  Venu<br/>
+    <%= f.text_field :venu %>
+  </p>
+  <p>
+  Date  <br />
+    <%= f.date_field :date %>
+  </p>
+  <p>
+  Description <br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    Invited<br />
+    <%= f.text_field :invitee %>
+  </p>
+  <p>
+    Status<br />
+    <%= f.select :status %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>
+	</div>
+</div>
+</div>
