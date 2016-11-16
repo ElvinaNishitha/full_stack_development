@@ -1,3 +1,12 @@
 .star{
     align:center;
 }
+
+.navbar-brand{
+	margin-top: -10px;
+}
+
+.btn{
+	float: right;
+	background-color: orange;
+}

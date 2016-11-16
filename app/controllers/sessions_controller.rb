@@ -6,7 +6,8 @@ def create
   user = User.authenticate(params[:email], params[:password])
   if user
     session[:user_id] = user.id
-    redirect_to schedule_path, :notice => "Logged in!"
+    session[:user_firstname] = user.firstname
+    redirect_to new_path, :notice => "Logged in as #{session[:user_firstname]} "
   else
     flash.now.alert = "Invalid email or password"
     render "new"

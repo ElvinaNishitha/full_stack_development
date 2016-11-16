@@ -18,9 +18,23 @@ get "log_out" => "sessions#destroy", :as => "log_out"
 get "log_in" => "sessions#new", :as => "log_in"
 get "sign_up" => "users#new", :as => "sign_up"
 root 'homes#new'
-resources :users
-  resources :events 
+resources :users 
 resources :sessions
+
+get "new/event" => "events#new", :as => "new"
+post "new/event" => "events#create", :as => "create"
+get 'new/event/:id' => 'events#edit', :as => 'edit'
+
+# get "list/event" => "events#index", :as => "list"
+# get 'new/event/:id' => 'events#show', :as => 'show'
+put 'new/event/:id' => 'events#update', :as => 'update'
+delete 'new/event/delete/:id' => 'events#destroy', :as => 'destroy'
+
+
+
+
+
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

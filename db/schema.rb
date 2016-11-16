@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161111054224) do
+ActiveRecord::Schema.define(version: 20161116054854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,19 @@ ActiveRecord::Schema.define(version: 20161111054224) do
     t.string   "venu"
     t.date     "date"
     t.string   "discription"
-    t.string   "invitees"
+    t.string   "invitees",    default: [],              array: true
     t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "owner_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "invitations", force: :cascade do |t|
+    t.integer  "invitee_id"
+    t.integer  "inviter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "event_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -5,8 +5,9 @@ class CreateEvents < ActiveRecord::Migration
       t.string :venu
       t.date :date
       t.string :discription
-      t.string :invitees
+      t.string :invitees, array: true, default: []
       t.string :status
+      t.integer :owner_id
 
       t.timestamps null: false
     end
